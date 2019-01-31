@@ -1,4 +1,3 @@
-
 pipeline {
   agent any
   
@@ -25,9 +24,9 @@ pipeline {
    }
    stage('Deploy') {
     steps {
-      ssh centos@52.26.244.188 "cp target/my-app-1.0-SNAPSHOT.jar /jarfile/"
+      sh 'scp -r target centos@52.26.244.188:/root/'
       // FYR sh './jenkins/scripts/deliver.sh
-       sh 'java -jar target/my-app-1.0-SNAPSHOT.jar'
+       sh 'java -jar 52.26.244.188/root/target/my-app-1.0-SNAPSHOT.jar'
     }
    }
    
