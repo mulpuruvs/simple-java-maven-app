@@ -1,4 +1,5 @@
- pipeline {
+
+pipeline {
   agent any
   
   tools {
@@ -24,6 +25,7 @@
    }
    stage('Deploy') {
     steps {
+      ssh centos@52.26.244.188 "cp target/my-app-1.0-SNAPSHOT.jar /jarfile/"
       // FYR sh './jenkins/scripts/deliver.sh
        sh 'java -jar target/my-app-1.0-SNAPSHOT.jar'
     }
