@@ -15,6 +15,20 @@ pipeline {
               url: "http://54.244.9.91:8081/artifactory",
               credentialsId: "ArtifactoryCredentials"
             }
+            
+            rtMavenDeployer {
+              id: "MAVEN_DEPLOYER",
+              serverId: "ARTIFACTORY_SERVER",
+              releaseRepo: "libs-release-local",
+              snapshotRepo: "libs-snapshot-local"
+            }
+            
+            rtMavenResolver {
+              id: "MAVEN_RESOLVER",
+              serverId: "ARTIFACTORY_SERVER",
+              releaseRepo: "libs-release",
+              snapshotRepo: "libs-snapshot"
+            }
           
         }
       }
