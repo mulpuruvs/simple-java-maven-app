@@ -12,7 +12,15 @@ pipeline {
         sh "mvn -B -DskipTests clean package"
       }
     }
-   stage('Test') {
+    
+    stage('SonarQube Code Analysis') {
+            steps {
+                //sh "mvn sonar:sonar -Dsonar.host.url=http://54.190.168.185:30002"
+                sh "mvn sonar:sonar -Dsonar.host.url=http://54.190.168.185:30025"
+              }
+        }
+    
+   /*stage('Test') {
     steps {
       sh "mvn test"
     }
@@ -30,7 +38,7 @@ pipeline {
       // FYR sh './jenkins/scripts/deliver.sh
        // sh 'java -jar 52.26.244.188/root/target/my-app-1.0-SNAPSHOT.jar'
     }
-   }
+   } */
    
   }
 }
