@@ -13,12 +13,13 @@ pipeline {
       }
     }
     
-    stage('SonarQube Code Analysis') {
+   /* stage('SonarQube Code Analysis') {
             steps {
                 //sh "mvn sonar:sonar -Dsonar.host.url=http://54.190.168.185:30002"
                 sh "mvn sonar:sonar -Dsonar.host.url=http://54.190.168.185:30025"
               }
         }
+    */
     
    /*stage('Test') {
     steps {
